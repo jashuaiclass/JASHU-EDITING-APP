@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-ink-950 font-sans text-slate-100 antialiased;
+  background-image:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(255, 154, 61, 0.14), transparent 60%),
+    radial-gradient(50rem 36rem at -10% 10%, rgba(91, 107, 255, 0.16), transparent 60%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-2xl px-5 text-[15px] font-semibold transition
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-jashu-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-r from-jashu-400 to-jashu-600 text-ink-950 shadow-lg shadow-jashu-600/25 hover:brightness-110 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn border border-white/10 bg-white/5 text-slate-100 hover:bg-white/10 active:scale-[0.98];
+  }
+  .card {
+    @apply rounded-3xl border border-white/10 bg-ink-900/70 backdrop-blur;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300;
+  }
+}
+
+input[type="range"].jashu-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff9a3d var(--pct, 50%), rgba(255, 255, 255, 0.12) var(--pct, 50%));
+  outline: none;
+}
+input[type="range"].jashu-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 999px;
+  background: #fff;
+  border: 3px solid #ff9a3d;
+  cursor: pointer;
+}
+input[type="range"].jashu-range::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 999px;
+  background: #fff;
+  border: 3px solid #ff9a3d;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
